@@ -2,65 +2,100 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ONG Esperança Viva - Transformando vidas por meio da solidariedade e do voluntariado.">
-  <title>ONG Esperança Viva | Início</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Sistema Completo</title>
 </head>
 <body>
-  <header>
-    <h1>ONG Esperança Viva</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section aria-labelledby="sobre">
-      <h2 id="sobre">Quem Somos</h2>
-      <img src="imagens/sede.jpg" alt="Sede da ONG Esperança Viva" width="600">
-      <p>A <strong>ONG Esperança Viva</strong> é uma organização sem fins lucrativos dedicada a promover a inclusão social e o desenvolvimento sustentável por meio de projetos comunitários, educacionais e ambientais.</p>
-    </section>
+<!-- Navegação -->
+<nav>
+  <div class="menu container">
+    <h2>Logo</h2>
 
-    <section aria-labelledby="missao">
-      <h2 id="missao">Missão, Visão e Valores</h2>
-      <article>
-        <h3>Missão</h3>
-        <p>Transformar vidas através da solidariedade e do engajamento social.</p>
-      </article>
-      <article>
-        <h3>Visão</h3>
-        <p>Ser referência em ações que promovam a cidadania e o bem-estar coletivo.</p>
-      </article>
-      <article>
-        <h3>Valores</h3>
+    <div id="hamburger">☰</div>
+
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li>
+        Projetos ▼
         <ul>
-          <li>Transparência</li>
-          <li>Empatia</li>
-          <li>Respeito</li>
-          <li>Responsabilidade social</li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Mobile</a></li>
         </ul>
-      </article>
-    </section>
+      </li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section aria-labelledby="contato">
-      <h2 id="contato">Contato</h2>
-      <address>
-        <p><strong>Endereço:</strong> Rua da Esperança, 123 – São Paulo, SP</p>
-        <p><strong>Telefone:</strong> (11) 3333-4444</p>
-        <p><strong>Email:</strong> <a href="mailto:contato@ongesperancaviva.org.br">contato@ongesperancaviva.org.br</a></p>
-      </address>
-    </section>
-  </main>
+<!-- Conteúdo -->
+<section class="container" style="margin-top: var(--space-48);">
+  <div class="grid-12">
+    
+    <!-- Card 1 -->
+    <div class="card" style="grid-column: span 4;">
+      <h3>Projeto 1</h3>
+      <span class="badge">UI Design</span>
+      <p>Descrição do projeto.</p>
+      <button class="btn btn-primary">Ver mais</button>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 ONG Esperança Viva. Todos os direitos reservados.</p>
-  </footer>
+    <!-- Card 2 -->
+    <div class="card" style="grid-column: span 4;">
+      <h3>Projeto 2</h3>
+      <span class="badge">Frontend</span>
+      <p>Descrição do projeto.</p>
+      <button class="btn btn-primary">Ver mais</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" style="grid-column: span 4;">
+      <h3>Projeto 3</h3>
+      <span class="badge">Backend</span>
+      <p>Descrição do projeto.</p>
+      <button class="btn btn-primary">Ver mais</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Formulário -->
+<section class="container" style="margin-top: var(--space-48);">
+  <h2>Contato</h2>
+  <input type="text" placeholder="Seu nome">
+  <input type="email" placeholder="Seu e-mail">
+  <textarea placeholder="Mensagem"></textarea>
+  <button class="btn btn-primary">Enviar</button>
+</section>
+
+<!-- Alert -->
+<div class="alert alert-success container" style="margin-top: var(--space-48);">
+  Mensagem enviada com sucesso!
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h3>Modal de Exemplo</h3>
+    <p>Conteúdo do modal aqui.</p>
+    <button class="btn btn-primary" onclick="fecharModal()">Fechar</button>
+  </div>
+</div>
+
 </body>
-</html>
+
+<script>
+function abrirModal(){
+  document.getElementById("modal").style.display = "flex";
+}
+
+function fecharModal(){
+  document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("hamburger").onclick = () => {
+  document.getElementById("nav-links").classList.toggle("show");
+}
+</script>
 
 </html>

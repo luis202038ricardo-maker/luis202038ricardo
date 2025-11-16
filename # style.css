@@ -1,0 +1,253 @@
+/* ===============================
+   DESIGN SYSTEM
+================================*/
+
+/* ---------- Cores (mín. 8 cores) ---------- */
+:root {
+  /* Primárias */
+  --color-primary: #4A6CF7;
+  --color-primary-light: #6F8CFF;
+  --color-primary-dark: #2C46C4;
+
+  /* Secundárias */
+  --color-secondary: #F7A34A;
+  --color-secondary-light: #FFBE73;
+  --color-secondary-dark: #C4762C;
+
+  /* Neutras */
+  --color-gray-100: #F7F7F7;
+  --color-gray-300: #E0E0E0;
+  --color-gray-500: #A0A0A0;
+  --color-gray-700: #555555;
+  --color-gray-900: #1A1A1A;
+
+  /* Feedback */
+  --color-success: #39C172;
+  --color-error: #E63946;
+  --color-warning: #FFBE0B;
+}
+
+/* ---------- Tipografia (mín. 5 tamanhos) ---------- */
+:root {
+  --font-xs: 0.75rem;   /* 12px */
+  --font-sm: 0.875rem;  /* 14px */
+  --font-md: 1rem;      /* 16px */
+  --font-lg: 1.25rem;   /* 20px */
+  --font-xl: 1.5rem;    /* 24px */
+  --font-xxl: 2rem;     /* 32px */
+}
+
+/* ---------- Espaçamentos (sistema modular) ---------- */
+:root {
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+}
+
+/* Tipografia base */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--color-gray-900);
+  background: var(--color-gray-100);
+}
+
+/* ===============================
+   GRID SISTEMA (12 colunas)
+================================*/
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-24);
+}
+
+/* ===============================
+   BREAKPOINTS (mín. 5)
+================================*/
+@media (max-width: 1400px) { /* XL */ }
+@media (max-width: 1200px) { /* LG */ }
+@media (max-width: 992px)  { /* MD */ }
+@media (max-width: 768px)  { /* SM */ }
+@media (max-width: 576px)  { /* XS */ }
+
+/* ===============================
+   NAVEGAÇÃO
+================================*/
+nav {
+  background: var(--color-primary);
+  color: white;
+  padding: var(--space-16);
+}
+
+nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-24);
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+/* Dropdown */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: white;
+  color: black;
+  padding: var(--space-16);
+  border-radius: 6px;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+nav ul li:hover ul {
+  display: flex;
+}
+
+/* Menu Mobile */
+#hamburger {
+  display: none;
+  font-size: var(--font-xl);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--color-primary-dark);
+    padding: var(--space-16);
+  }
+  nav ul.show {
+    display: flex;
+  }
+  #hamburger {
+    display: block;
+  }
+}
+
+/* ===============================
+   COMPONENTES
+================================*/
+
+/* Cards */
+.card {
+  background: white;
+  padding: var(--space-24);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* Botões */
+.btn {
+  padding: var(--space-16) var(--space-32);
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-md);
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
+.btn-primary:disabled {
+  background: var(--color-gray-500);
+}
+
+/* Formulários */
+input, textarea {
+  padding: var(--space-16);
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-300);
+  font-size: var(--font-md);
+  width: 100%;
+}
+
+input:focus {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary-light);
+}
+
+/* Feedback */
+.alert {
+  padding: var(--space-16);
+  border-radius: 8px;
+  font-size: var(--font-md);
+}
+
+.alert-success {
+  background: var(--color-success);
+  color: white;
+}
+
+.alert-error {
+  background: var(--color-error);
+  color: white;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-secondary);
+  padding: var(--space-16);
+  border-radius: 12px;
+  color: white;
+}
+
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: var(--space-32);
+  border-radius: 12px;
+  width: min(400px, 90%);
+}
+
+/* Tags e Badges */
+.badge {
+  padding: 4px 10px;
+  background: var(--color-primary-light);
+  color: white;
+  border-radius: 6px;
+  font-size: var(--font-sm);
+}
